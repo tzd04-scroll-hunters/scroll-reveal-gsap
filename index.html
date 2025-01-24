@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP ScrollTrigger Demo</title>
+  <style>
+    section {
+      border: 1px solid #333;
+      display: inline-block;
+      padding: 1em;
+    }
+
+    .counter  {
+      font-size: 2rem;
+      span {
+        background-color: green;
+        color: white;
+      }
+    }
+  </style>
+  <!-- downloaded scripts -->
+  <script src="./gsap.js"></script>
+  <script src="./scrollTrigger.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <h1>Scroll Trigger dich tot!</h1>
+  </header>
+
+  <main>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error, vero omnis consectetur veritatis tempora amet
+      dolore ipsum rerum a vitae sint perferendis quam. Earum, quod. Molestias assumenda ea aliquid consectetur.</p>
+    <p>Nemo aperiam dolorum distinctio dignissimos. Beatae voluptatibus exercitationem incidunt quisquam nostrum quasi
+      nemo nulla mollitia? Officiis vero nulla illum voluptate, accusamus, quas officia mollitia consequuntur sequi
+      doloremque quasi architecto consequatur.</p>
+    <p>Libero sit cupiditate adipisci nihil? At incidunt aliquid nemo ullam, dicta tempora ipsa autem ipsam, natus eaque
+      molestias error ratione recusandae! Molestias id iusto animi nihil quas amet ipsa nam.</p>
+    <p>Quae eius fuga odit ad. Esse doloribus libero voluptatibus autem similique laboriosam sequi, pariatur, quos ullam
+      dignissimos sit cumque aperiam amet, ad vitae alias! Deleniti vero temporibus error cumque qui!</p>
+    <p>Sunt nemo quisquam doloribus exercitationem, quidem illo dolorum tempore possimus fugiat fuga incidunt placeat
+      vel accusamus cum excepturi voluptatibus, explicabo asperiores magni numquam voluptatum laborum animi delectus
+      rerum architecto. Eius!</p>
+    <p>Libero sit cupiditate adipisci nihil? At incidunt aliquid nemo ullam, dicta tempora ipsa autem ipsam, natus eaque
+      molestias error ratione recusandae! Molestias id iusto animi nihil quas amet ipsa nam.</p>
+    <p>Quae eius fuga odit ad. Esse doloribus libero voluptatibus autem similique laboriosam sequi, pariatur, quos ullam
+      dignissimos sit cumque aperiam amet, ad vitae alias! Deleniti vero temporibus error cumque qui!</p>
+    <p>Sunt nemo quisquam doloribus exercitationem, quidem illo dolorum tempore possimus fugiat fuga incidunt placeat
+      vel accusamus cum excepturi voluptatibus, explicabo asperiores magni numquam voluptatum laborum animi delectus
+      rerum architecto. Eius!</p>
+
+    <!-- wenn wir zu DIESER Section scrollen, wollen wir eine Animation starten! -->
+    <section class="fady">
+      Animier mich!
+    </section>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error, vero omnis consectetur veritatis tempora amet
+      dolore
+      ipsum rerum a vitae sint perferendis quam. Earum, quod. Molestias assumenda ea aliquid consectetur.</p>
+    <p>Nemo aperiam dolorum distinctio dignissimos. Beatae voluptatibus exercitationem incidunt quisquam nostrum quasi
+      nemo
+      nulla mollitia? Officiis vero nulla illum voluptate, accusamus, quas officia mollitia consequuntur sequi
+      doloremque
+      quasi architecto consequatur.</p>
+    <p>Libero sit cupiditate adipisci nihil? At incidunt aliquid nemo ullam, dicta tempora ipsa autem ipsam, natus eaque
+      molestias error ratione recusandae! Molestias id iusto animi nihil quas amet ipsa nam.</p>
+    <p>Quae eius fuga odit ad. Esse doloribus libero voluptatibus autem similique laboriosam sequi, pariatur, quos ullam
+      dignissimos sit cumque aperiam amet, ad vitae alias! Deleniti vero temporibus error cumque qui!</p>
+    <p>Sunt nemo quisquam doloribus exercitationem, quidem illo dolorum tempore possimus fugiat fuga incidunt placeat
+      vel
+      accusamus cum excepturi voluptatibus, explicabo asperiores magni numquam voluptatum laborum animi delectus rerum
+      architecto. Eius!</p>
+
+    <!-- 
+      when we reach this section with scrolling
+        count up counter to 100 
+      -->
+    <section class="counter">
+      <label>Visitors:</label>
+      <span>0</span>
+    </section>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error, vero omnis consectetur veritatis tempora amet
+      dolore
+      ipsum rerum a vitae sint perferendis quam. Earum, quod. Molestias assumenda ea aliquid consectetur.</p>
+    <p>Nemo aperiam dolorum distinctio dignissimos. Beatae voluptatibus exercitationem incidunt quisquam nostrum quasi
+      nemo
+      nulla mollitia? Officiis vero nulla illum voluptate, accusamus, quas officia mollitia consequuntur sequi
+      doloremque
+      quasi architecto consequatur.</p>
+    <p>Libero sit cupiditate adipisci nihil? At incidunt aliquid nemo ullam, dicta tempora ipsa autem ipsam, natus eaque
+      molestias error ratione recusandae! Molestias id iusto animi nihil quas amet ipsa nam.</p>
+    <p>Quae eius fuga odit ad. Esse doloribus libero voluptatibus autem similique laboriosam sequi, pariatur, quos ullam
+      dignissimos sit cumque aperiam amet, ad vitae alias! Deleniti vero temporibus error cumque qui!</p>
+    <p>Sunt nemo quisquam doloribus exercitationem, quidem illo dolorum tempore possimus fugiat fuga incidunt placeat
+      vel
+      accusamus cum excepturi voluptatibus, explicabo asperiores magni numquam voluptatum laborum animi delectus rerum
+      architecto. Eius!</p>
+
+  </main>
+
+</body>
+
+<script>
+
+  // animate sofort beim Laden!
+  gsap.to("h1", {
+    backgroundColor: "lime",
+    delay: 3,
+  })
+
+  // animate sofort beim Laden!
+  gsap.to(".fady", {
+    backgroundColor: "lime",
+    x: 100,
+    // scrollTrigger animates the item when SCROLLED into!
+    // => item becomes visible in viewport
+    scrollTrigger: {
+      trigger: ".fady",
+      // first value: scroll position in ELEMENT
+      // second value: scroll position in VIEWPORT
+      start: "center 30%"
+    }
+  })
+
+  const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+
+  // animate counter when scrolling to it
+  gsap.to(".counter span", {
+    // animation außerhalb scroll trigger
+    innerText: 100,
+    // backgroundColor: gsap.utils.wrap(colors),
+    // Farbton dreht sich um 360 Grad um die START FARBE
+    backgroundColor: "hsl(+=360, 100%, 50%)", 
+    ease: "linear",
+    // ease: "steps(100)",
+    // snap => round a number
+    snap: "innerText",
+    duration: 10,
+    scrollTrigger: {
+      trigger: ".counter",
+      // show markers where animation will start visually!
+      // markers: true,
+      // start animation when CENTER of ELEMENT reaches CENTER of VIEWPORT
+      start: "center center",
+    }
+  }) 
+
+  // GENERAL PATTERN
+  // gsap.to(<elementToAnimate>, {
+  //   scrollTrigger: {
+  //     trigger: "<elementThatTRIGGERSAnimationOnceWeScrollToIt>"
+  //   }
+  // })
+</script>
+
+</html>
