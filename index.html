@@ -6,14 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GSAP ScrollTrigger Demo</title>
   <style>
+
+    body {
+      min-height: 500vh;
+    }
+
+    h1 {
+      width: 500px;
+      border: 1px solid #333;
+    }
+
     section {
       border: 1px solid #333;
       display: inline-block;
       padding: 1em;
+
     }
 
     .counter  {
       font-size: 2rem;
+      /* height: 300px; */
       span {
         background-color: green;
         color: white;
@@ -23,6 +35,8 @@
   <!-- downloaded scripts -->
   <script src="./gsap.js"></script>
   <script src="./scrollTrigger.js"></script>
+  <!-- deferred scripts are loaded AFER the HTML body was loaded -->
+  <script defer src="./anim.js"></script>
 </head>
 
 <body>
@@ -104,57 +118,6 @@
 
 </body>
 
-<script>
 
-  // animate sofort beim Laden!
-  gsap.to("h1", {
-    backgroundColor: "lime",
-    delay: 3,
-  })
-
-  // animate sofort beim Laden!
-  gsap.to(".fady", {
-    backgroundColor: "lime",
-    x: 100,
-    // scrollTrigger animates the item when SCROLLED into!
-    // => item becomes visible in viewport
-    scrollTrigger: {
-      trigger: ".fady",
-      // first value: scroll position in ELEMENT
-      // second value: scroll position in VIEWPORT
-      start: "center 30%"
-    }
-  })
-
-  const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
-
-  // animate counter when scrolling to it
-  gsap.to(".counter span", {
-    // animation außerhalb scroll trigger
-    innerText: 100,
-    // backgroundColor: gsap.utils.wrap(colors),
-    // Farbton dreht sich um 360 Grad um die START FARBE
-    backgroundColor: "hsl(+=360, 100%, 50%)", 
-    ease: "linear",
-    // ease: "steps(100)",
-    // snap => round a number
-    snap: "innerText",
-    duration: 10,
-    scrollTrigger: {
-      trigger: ".counter",
-      // show markers where animation will start visually!
-      // markers: true,
-      // start animation when CENTER of ELEMENT reaches CENTER of VIEWPORT
-      start: "center center",
-    }
-  }) 
-
-  // GENERAL PATTERN
-  // gsap.to(<elementToAnimate>, {
-  //   scrollTrigger: {
-  //     trigger: "<elementThatTRIGGERSAnimationOnceWeScrollToIt>"
-  //   }
-  // })
-</script>
 
 </html>
